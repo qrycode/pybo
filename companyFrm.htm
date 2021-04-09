@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>
+        투자일반기업 수정하기 | 기업투자정보마당
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, target-densitydpi=medium-dpi" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="기업투자정보마당" />
+    <meta name="keywords" content="기업투자정보마당" />
+    <link rel="icon" type="image/x-icon" href="/resources/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css" media="all" />
+
+    <script type="text/javascript" src="/resources/script/lib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/resources/script/common/ui.js"></script>
+    <script type="text/javascript" src="/resources/script/common/jqueryFunction.js"></script>
+    <script type="text/javascript" src="/resources/script/lib/jquery.validate.js"></script>
+    <script type="text/javascript" src="/resources/script/common/validator.js"></script>
+    <script type="text/javascript" src="/resources/script/common/common.js"></script>
+    <script type="text/javascript" src="/resources/script/lib/jquery.hoverIntent.minified.js"></script>
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+    <link rel="stylesheet" href="/resources/css/datepicker.css" />
+    <script type="text/javascript" src="/resources/script/common/datepicker.js"></script>
+    <script type="text/javascript" src="/resources/script/common/datepicker2.js"></script>
+    <script type="text/javascript" src="/resources/script/common/ui.js"></script>
+
+</head>
+
+<body class="content">
+    <div id="wrap">
+        <div id="container">
+
+            <div id="wishCompanyPop">
+                <div class="popWrap large">
+                    <span class="popTitle">
+                        <strong>투자일반기업 수정하기</strong>
+                    </span>
+                    <div class="popContent">
+                        <h2 class="bulType small" style="padding-left:23px;">사업 상세 정보 입력</h2>
+                        <form name="companyFrm" id="companyFrm" action="/mypage/include/insertCompany.htm" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="bizSeq" value="19785" />
+                            <input type="hidden" name="cpnSeq" value="5434" />
+                            <input type="hidden" name="recommYn" value="N" />
+                            <input type="hidden" name="cultureYn" value="N" />
+                            <input type="hidden" name="tourYn" value="N" />
+                            <input type="hidden" name="socialYn" value="N" />
+                            <div class="table">
+                                <table>
+                                    <caption>사업 상세 정보 입력 서식(사업/아이디어명, 한 줄 설명, 투자희망금액, 정보공개기간, 기업(홍보)이미지 및 홍보영역이미지 업로드)</caption>
+                                    <colgroup>
+                                        <col style="width:20%;" />
+                                        <col style="width:*;" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><label for="bizName">사업/아이디어명</label><span class="star">별표</span></th>
+                                            <td><span class="formElement"><input type="text" id="bizName" name="bizName" title="사업/아이디명을 입력하세요." placeholder="사업/아이디어명을 입력하세요." style="width:600px;" value="test" maxlength="80" /></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><label for="bizLineDesc">한 줄 설명</label></th>
+                                            <td><span class="formElement"><input type="text" id="bizLineDesc" name="bizLineDesc" title="한 줄 요약 설명을 입력하세요." placeholder="한 줄 요약 설명을 입력하세요." style="width:600px;" value="테스트사업입니다" maxlength="40" /></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><label for="investWishAmt">투자희망금액</label><span class="star">별표</span></th>
+                                            <td><span class="formElement"><input type="text" id="investWishAmt" name="investWishAmt" title="투자희망금액을 숫자로입력하세요." placeholder="투자희망금액을 숫자로입력하세요." style="width:228px;" value="0" maxlength="20" class="_comma" /></span> <span class="text">원</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">정보공개기간<span class="star">별표</span></th>
+                                            <td>
+                                                <span class="formElement"><input type="text" id="infoOpenStartDate" name="infoOpenStartDate" style="width:100px;" value="2019-06-03" title="정보공개기간 시작일을 YYYY-MM-DD 형태로 입력해주세요" maxlength="10" /></span>
+                                                <script type="text/javascript">
+                                                    datePickerController.createDatePicker({
+                                                        formElements: {
+                                                            "infoOpenStartDate": "%Y-%m-%d"
+                                                        }
+                                                    });
+                                                </script>
+                                                <span class="text type3">-</span>
+                                                <span class="formElement"><input type="text" id="infoOpenCloseDate" name="infoOpenCloseDate" style="width:100px;" value="2019-09-19" title="정보공개기간 종료일을 YYYY-MM-DD 형태로 입력해주세요" maxlength="10" /></span>
+                                                <script type="text/javascript">
+                                                    datePickerController2.createDatePicker({
+                                                        formElements: {
+                                                            "infoOpenCloseDate": "%Y-%m-%d"
+                                                        }
+                                                    });
+                                                </script>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">기업(홍보)이미지<span class="star">별표</span></th>
+                                            <td>
+                                                <div class="attachFile" style="width:612px;">
+                                                    <input type="text" class="upload" value="550 x 422" disabled="disabled" style="width:483px;" title="선택한 기업 이미지 파일명" />
+                                                    <label for="bizImg">파일찾아보기</label>
+                                                    <input type="file" id="bizImg" name="bizImg" class="uploadHidden" title="기업 이미지 파일찾아보기" />
+                                                </div>
+
+                                                <ol id="ol_bizImg">
+                                                    <li>등록 된 파일명 : 20200915161354491.jpg<span class="btnTable light"><a href="javascript://" class="_delImgFile" data-imgType="bizImg">삭제</a></span></li>
+                                                    <input type="hidden" name="bizImgPath" id="bizImgPath" value="/files/upload/company/20200915161354491.jpg" />
+                                                    <input type="hidden" name="preBizImgPath" id="preBizImgPath" value="/files/upload/company/20200915161354491.jpg" />
+                                                </ol>
+
+                                                <textarea cols="50" rows="2" class="altTextarea" name="bizImgAltText" id="bizImgAltText" title="기업 이미지에 대한 대체텍스트를 입력해주세요." placeholder="이미지에 대한 대체텍스트를 입력해주세요." maxlength="65">test</textarea>
+
+                                                <span class="text type2">(홍보영역 이미지)</span>
+                                                <div class="attachFile" style="width:612px;">
+                                                    <input type="text" class="upload" value="500 x 288" disabled="disabled" style="width:483px;" title="선택한 홍보영역 이미지 파일명" />
+                                                    <label for="promoImg">파일찾아보기</label>
+                                                    <input type="file" id="promoImg" name="promoImg" class="uploadHidden" title="홍보영역 이미지 파일찾아보기" />
+                                                </div>
+
+                                                <ol id="ol_promoImg">
+                                                    <li>등록 된 파일명 : 20200915161354588.jpg<span class="btnTable light"><a href="javascript://" class="_delImgFile" data-imgType="promoImg">삭제</a></span></li>
+                                                    <input type="hidden" name="bizImgPath" id="promoImgPath" value="/files/upload/company/20200915161354588.jpg" />
+                                                    <input type="hidden" name="preBizImgPath" id="prePromoImgPath" value="/files/upload/company/20200915161354588.jpg" />
+                                                </ol>
+
+                                                <textarea cols="50" rows="2" class="altTextarea" name="promoImgAltText" id="promoImgAltText" title="홍보영역 이미지에 대한 대체텍스트를 입력해주세요." placeholder="이미지에 대한 대체텍스트를 입력해주세요." maxlength="65">test</textarea>
+                                                <p class="desc">투자희망기업 상세 페이지 기업(홍보)이미지로 노출되는 이미지와 추천 홍보 영역 내 노출되는 이미지를 각각<br />업로드 해주세요.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">&nbsp;&nbsp;&nbsp;사업분야<span class="star">별표</span><br />
+                                                <span class="text">(최대 3개까지 체크)</span>
+                                            </th>
+                                            <td id="td_bizTypeCd"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">&nbsp;&nbsp;&nbsp;태그<span class="star">별표</span><br /><span class="text">(1개 이상 등록)</span></th><!-- 0116 &nbsp; 추가 -->
+                                            <td>
+                                                <span class="formElement"><input type="text" title="관련 태그를 입력하세요." style="width:102px;" id="bizKeyword1" name="bizKeyword" value="test" title="관련 태그를 입력하세요." maxlength="15" /></span>
+
+                                                <span class="formElement"><input type="text" title="관련 태그를 입력하세요." style="width:102px;" id="bizKeyword2" name="bizKeyword" value="" title="관련 태그를 입력하세요." maxlength="15" /></span>
+
+                                                <span class="formElement"><input type="text" title="관련 태그를 입력하세요." style="width:102px;" id="bizKeyword3" name="bizKeyword" value="" title="관련 태그를 입력하세요." maxlength="15" /></span>
+
+                                                <span class="formElement"><input type="text" title="관련 태그를 입력하세요." style="width:102px;" id="bizKeyword4" name="bizKeyword" value="" title="관련 태그를 입력하세요." maxlength="15" /></span>
+
+                                                <span class="formElement"><input type="text" title="관련 태그를 입력하세요." style="width:102px;" id="bizKeyword5" name="bizKeyword" value="" title="관련 태그를 입력하세요." maxlength="15" /></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">파일업로드<br /><span class="text">(최대 10개까지 등록)</span></th>
+                                            <td>
+                                                <div class="attachFile" style="width:612px;" id="hiddenCipFiles">
+                                                    <input type="text" class="upload" value="" disabled="disabled" style="width:483px;" title="회사소개서, 기업IR자료, 법인등기사항 증명서, 기업홍보자료(언론보도 내용, 각종 수상내역 등) 등의 자료를 첨부한 파일" />
+                                                    <label for="cipCompanyFile1" id="findFileBtn">파일찾아보기</label>
+                                                    <input type="file" id="cipCompanyFile1" name="cipCompanyFiles" class="uploadHidden" />
+                                                </div>
+                                                <ol id="cipCompanyFileList">
+
+                                                </ol>
+                                                <p class="desc">회사소개서, 기업IR자료, 법인등기사항 증명서, 기업홍보자료(언론보도 내용, 각종 수상내역 등) 등의 자료를 첨부해주세요. 만약 주민번호, 계좌번호 등 개인정보가 포함되어 있으면 개인정보 보호를 위해 삭제될 수 있습니다.</p>
+                                            </td>
+                                        </tr>
+                                        <!-- 관광사업일 경우 노출 -->
+                                        <tr class="_crowdTypeCd">
+                                            <th scope="row"><label for="crowdTypeCd">투자희망유형</label></th>
+                                            <td>
+                                                <span class="formElement small">
+                                                    <input type="checkbox" name="crowdTypeCd" id="crowdTypeCd0" value="C9001" />
+                                                    <label for="crowdTypeCd0" value="C9001" class="radio">후원형</label>
+                                                </span>
+                                                <span class="formElement small">
+                                                    <input type="checkbox" name="crowdTypeCd" id="crowdTypeCd1" value="C9002" />
+                                                    <label for="crowdTypeCd1" value="C9002" class="radio">증권형</label>
+                                                </span>
+
+                                            </td>
+                                        </tr>
+                                        <!-- 관광사업일 경우 노출. 관리자만 수정 -->
+                                        <tr class="_bizScore">
+                                            <th scope="row"><label for="bizScore">관광전문가평점</label></th>
+                                            <td>
+                                                <span class="formElement small">
+                                                    <input type="checkbox" id="tourRecommYn" name="tourRecommYn" value="Y" disabled="disabled" />
+                                                    <label for="tourRecommYn">전문가 추천</label>
+                                                </span>
+
+                                                <span class="formElement">
+                                                    <input type="text" id="bizScore" name="bizScore" style="width:50px;" value="0.0" maxlength="3" disabled="disabled" class="_score" />
+                                                </span>
+                                                <span class="formElement">점</span>
+
+                                                <p class="desc">관광전문가 평가 점수를 숫자(소수점 가능)만 입력해주세요. 전문가가 추천하는 프로젝트일 경우, ‘전문가 추천’을 체크 선택하면 평점 입력이 가능하고 ‘전문가 추천’ 라벨이 노출됩니다. </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h2 class="bulType small" style="padding-left:23px;">해당 기업 정보 입력</h2>
+                            <div class="table">
+                                <table>
+                                    <caption>해당 기업 정보 입력 서식(기업명, 사업자유형, 사업분야, 태그, 기업소재지, CI로고이미지 및 첨부파일 업로드 항목)</caption>
+                                    <colgroup>
+                                        <col style="width:20%;" />
+                                        <col style="width:*;" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><label for="cpnName">기업명</label><span class="star">별표</span></th>
+                                            <td>
+                                                <span class="formElement">
+                                                    <input type="text" id="cpnName" name="cpnName" readonly="true" title="기업명을 입력하세요." placeholder="기업명을 입력하세요." style="width:600px;" value="testcomp" maxlength="40" />
+                                                </span>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 투자희망기업 담당자 등록, 기관 수정일 경우 노출 -->
+
+                                        <tr>
+                                            <th scope="row">사업자유형<span class="star">별표</span></th>
+                                            <td>
+
+                                                <span class="formElement">
+                                                    <input type="radio" name="cpnTypeCd" id="cpnTypeCd0" value="C1001" disabled />
+                                                    <label for="cpnTypeCd0" value="C1001" class="radio">법인사업자</label>
+                                                </span>
+
+                                                <span class="formElement">
+                                                    <input type="radio" name="cpnTypeCd" id="cpnTypeCd1" value="C1002" disabled />
+                                                    <label for="cpnTypeCd1" value="C1002" class="radio">개인사업자</label>
+                                                </span>
+
+                                                <span class="formElement">
+                                                    <input type="radio" name="cpnTypeCd" id="cpnTypeCd2" value="C1003" checked disabled />
+                                                    <label for="cpnTypeCd2" value="C1003" class="radio">창업준비중</label>
+                                                </span>
+
+                                            </td>
+                                        </tr>
+                                        <!-- 기관이면서 기업정보 신규등록일때만 노출 -->
+                                        <tr>
+                                            <th scope="row">기업소재지<span class="star">별표</span></th>
+                                            <td>
+                                                <span class="formElement">
+
+                                                    <select title="시,도 선택" style="width:138px;" name="location" id="location1">
+                                                        <option value="" data-prntSeq="null">지역선택</option>
+
+                                                        <option value="강원도">강원도</option>
+
+                                                        <option value="경기도" selected="selected">경기도</option>
+
+                                                        <option value="경상남도">경상남도</option>
+
+                                                        <option value="경상북도">경상북도</option>
+
+                                                        <option value="광주광역시">광주광역시</option>
+
+                                                        <option value="대구광역시">대구광역시</option>
+
+                                                        <option value="대전광역시">대전광역시</option>
+
+                                                        <option value="부산광역시">부산광역시</option>
+
+                                                        <option value="서울특별시">서울특별시</option>
+
+                                                        <option value="세종특별자치시">세종특별자치시</option>
+
+                                                        <option value="울산광역시">울산광역시</option>
+
+                                                        <option value="인천광역시">인천광역시</option>
+
+                                                        <option value="전라남도">전라남도</option>
+
+                                                        <option value="전라북도">전라북도</option>
+
+                                                        <option value="제주특별자치도">제주특별자치도</option>
+
+                                                        <option value="충청남도">충청남도</option>
+
+                                                        <option value="충청북도">충청북도</option>
+
+                                                    </select>
+                                                </span>
+                                                <span class="formElement">
+                                                    <select title="구,군 선택" style="width:138px;" name="location" id="location2">
+                                                        <option value="" selected="selected">구,군 선택</option>
+                                                    </select>
+                                                </span>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">CI로고 이미지</th>
+                                            <td>
+                                                <div class="attachFile" style="width:612px;">
+                                                    <input type="text" class="upload" value="" disabled="disabled" style="width:483px;" title="선택한 CI로고 이미지" />
+                                                    <label for="ciImg">파일찾아보기</label>
+                                                    <input type="file" id="ciImg" name="ciImg" class="uploadHidden" />
+
+                                                    <ol id="ol_ciImg">
+                                                        <li>등록 된 파일명 : 20161028190258693.jpeg<span class="btnTable light"><a href="javascript://" class="_delImgFile" data-imgType="ciImg">삭제</a></span></li>
+                                                        <input type="hidden" name="ciImgPath" id="ciImgPath" value="/files/upload/company/20161028190258693.jpeg" />
+                                                    </ol>
+                                                    <input type="hidden" name="preCiImgPath" id="preCiImgPath" value="/files/upload/company/20161028190258693.jpeg" />
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="btnWrap center">
+                                <span class="btnLarge">
+                                    <a href="javascript://" id="_submitFrm">
+                                        수정하기
+                                    </a>
+                                </span>
+                                <span class="btnLarge light"><a href="javascript://" class="_closePop" title="새 창 닫음">취소</a></span>
+                            </div>
+                        </form>
+                    </div>
+                    <button type="button" class="close _closePop" title="새 창 닫음">팝업 닫기</button>
+                </div>
+            </div>
+
+            <script type="text/javascript" src="/resources/script/lib/can.jquery.min.js"></script>
+            <script type="text/javascript" src="/resources/script/lib/require.js"></script>
+            <script type="text/javascript" src="/resources/script/common/app.js"></script>
+            <script type="text/javascript">
+                require(['validator'], function() {
+
+                    var fileSeq = 1;
+                    var fileMaxLength = 10;
+
+
+                    getLocation('경기도', '성남시 중원구');
+
+
+                    //기업 소재지 변경 시
+                    $('#location1').on("change", function() {
+                        var commonCode = $("#location1 option:selected").val();
+                        getLocation(commonCode);
+                    });
+
+                    //사업자유형에 따른 사업자등록번호, 법인등록번호 노출/비노출 셋팅
+                    $('input:radio[name*=cpnTypeCd]').on('click', function() {
+                        switch ($(this).val()) {
+                            case 'C1001': {
+                                $('._licenseeNo_ready').show();
+                                $('._corpRegNo_ready').show();
+
+                                $("#licenseeNo").removeAttr("disabled");
+                                $("#licenseeImg").removeAttr("disabled");
+                                $("#corpRegNo").removeAttr("disabled");
+                                break;
+                            }
+                            case 'C1002': {
+                                $('._licenseeNo_ready').show();
+                                $('._corpRegNo_ready').hide();
+
+                                $("#licenseeNo").removeAttr("disabled");
+                                $("#licenseeImg").removeAttr("disabled");
+                                $("#corpRegNo").attr("disabled", "disabled");
+                                break;
+                            }
+                            case 'C1003': {
+                                $('._licenseeNo_ready').hide();
+                                $('._corpRegNo_ready').hide();
+
+                                $("#licenseeNo").attr("disabled", "disabled");
+                                $("#licenseeImg").attr("disabled", "disabled");
+                                $("#corpRegNo").attr("disabled", "disabled");
+                                break;
+                            }
+                        }
+                    });
+
+                    //기업정보 유형에 따른 투자희망유형, 관광전문가 평점 노출/비노출 셋팅
+                    $('input:radio[name*=cultureYn]').on('click', function() {
+                        switch ($(this).val()) {
+                            case 'T': {
+                                $('._crowdTypeCd').show();
+                                $('._bizScore').show();
+                                $('._jointYn').hide();
+                                break;
+                            }
+                            case 'S': {
+                                $('._crowdTypeCd').show();
+                                $('._bizScore').hide();
+                                $('._jointYn').show();
+                                break;
+                            }
+                            default: {
+                                $('._crowdTypeCd').hide();
+                                $('._bizScore').hide();
+                                $('._jointYn').show();
+                                break;
+                            }
+                        }
+                    });
+
+                    //사업자등록번호 중복체크
+                    $("#_checkLicenseeNo").on("click", function() {
+                        var licenseeNo1 = $("#licenseeNo1");
+                        var licenseeNo2 = $("#licenseeNo2");
+                        var licenseeNo3 = $("#licenseeNo3");
+                        var licenseeNo = licenseeNo1.val() + "-" + licenseeNo2.val() + "-" + licenseeNo3.val();
+
+                        if (isEmpty(licenseeNo1.val())) {
+                            alert("사업자등록번호를 입력하세요.");
+                            licenseeNo1.focus();
+                            return;
+                        }
+
+                        if (isEmpty(licenseeNo2.val())) {
+                            alert("사업자등록번호를 입력하세요.");
+                            licenseeNo2.focus();
+                            return;
+                        }
+
+                        if (isEmpty(licenseeNo3.val())) {
+                            alert("사업자등록번호를 입력하세요.");
+                            licenseeNo3.focus();
+                            return;
+                        }
+
+                        if (!checkLicenseeNo(licenseeNo)) {
+                            licenseeNo1.focus();
+                            alert("사업자등록번호를 형식에 맞게 입력해 주세요.");
+                        } else {
+                            //사업자등록번호 중복체크 여부 초기화
+                            $("#licenseeNo").attr("data_confirmYn", "N");
+                            //중복체크요청 입력값 셋팅
+                            licenseeNo1.attr("data_licenseeNo1", licenseeNo1.val());
+                            licenseeNo2.attr("data_licenseeNo2", licenseeNo2.val());
+                            licenseeNo3.attr("data_licenseeNo3", licenseeNo3.val());
+
+                            $.ajax({
+                                url: '/member/join/checkLicenseeNo.json',
+                                type: 'post',
+                                dataType: 'json',
+                                data: {
+                                    'licenseeNo': licenseeNo
+                                },
+                                success: function(data) {
+                                    if (data != 0) {
+                                        alert("기업투자정보마당 회원이십니다.\nID/PW를 모르시는 경우, ID/PW찾기를 해주시기 바랍니다.");
+                                    } else {
+                                        //사업자등록번호 중복체크 여부 셋팅
+                                        $("#licenseeNo").attr("data_confirmYn", "Y");
+                                        alert("사용 가능한 사업자등록번호 입니다.");
+                                    }
+                                },
+                                error: function() {
+                                    alert("잠시후 다시 시도해 주세요.");
+                                }
+                            });
+                        }
+                    });
+
+                    //법인등록번호 중복체크
+                    $("#_checkCorpRegNo").on("click", function() {
+                        //alert("법인등록번호 중복체크");
+                        var corpRegNo1 = $("#corpRegNo1");
+                        var corpRegNo2 = $("#corpRegNo2");
+                        var corpRegNo = corpRegNo1.val() + "-" + corpRegNo2.val();
+
+                        if (isEmpty(corpRegNo1.val())) {
+                            alert("법인등록번호를 입력하세요.");
+                            corpRegNo1.focus();
+                            return;
+                        }
+
+                        if (isEmpty(corpRegNo2.val())) {
+                            alert("법인등록번호를 입력하세요.");
+                            corpRegNo2.focus();
+                            return;
+                        }
+
+                        if (!checkCorpRegNo(corpRegNo)) {
+                            corpRegNo1.focus();
+                            alert("법인등록번호를 형식에 맞게 입력해 주세요.");
+                        } else {
+                            //법인등록번호 중복체크 여부 초기화
+                            $("#corpRegNo").attr("data_confirmYn", "N");
+                            //중복체크요청 입력값 셋팅
+                            corpRegNo1.attr("data_corpRegNo1", corpRegNo1.val());
+                            corpRegNo2.attr("data_corpRegNo2", corpRegNo2.val());
+
+                            $.ajax({
+                                url: '/member/join/checkCorpRegNo.json',
+                                type: 'post',
+                                dataType: 'json',
+                                data: {
+                                    'corpRegNo': corpRegNo
+                                },
+                                success: function(data) {
+                                    if (data != 0) {
+                                        alert("기업투자정보마당 회원이십니다.\nID/PW를 모르시는 경우, ID/PW찾기를 해주시기 바랍니다.");
+                                    } else {
+                                        //법인등록번호 중복체크 여부 셋팅
+                                        $("#corpRegNo").attr("data_confirmYn", "Y");
+                                        alert("사용 가능한 법인등록번호 입니다.");
+                                    }
+                                },
+                                error: function() {
+                                    alert("잠시후 다시 시도해 주세요.");
+                                }
+                            });
+                        }
+                    });
+
+                    //jquery validator 설정
+                    $('#companyFrm').validate({
+                        rules: {
+                            bizName: {
+                                required: true
+                            },
+                            investWishAmt: {
+                                required: true,
+                                //amt : true,
+                            },
+                            infoOpenStartDate: {
+                                required: true
+                            },
+                            infoOpenCloseDate: {
+                                required: true
+                            },
+
+                            bizTypeCd: {
+                                required: true
+                            },
+                            bizKeyword: {
+                                required: true,
+                            },
+                            cpnName: {
+                                required: true
+                            },
+                            cpnTypeCd: {
+                                required: true
+                            },
+                            /*location1 : {
+                                required : true
+                            },
+
+                            location2 : {
+                                required : true
+                            }*/
+                        },
+                        messages: {
+                            bizName: {
+                                required: '사업/아이디어명을 입력해주세요.',
+                            },
+                            investWishAmt: {
+                                required: '투자희망금액을 입력해주세요.',
+                                //amt : '투자희망금액은 숫자만 입력해주세요.'
+                            },
+                            infoOpenStartDate: {
+                                required: '정보공개기간 시작일을 입력해주세요.',
+                            },
+                            infoOpenCloseDate: {
+                                required: '정보공개기간 종료일을 입력해주세요.',
+                            },
+
+                            bizTypeCd: {
+                                required: '사업분야를 선택해주세요.'
+                            },
+                            bizKeyword: {
+                                required: '태그는 1개 이상 등록해주세요.',
+                            },
+                            cpnName: {
+                                required: '기업명을 입력해주세요.'
+                            },
+                            cpnTypeCd: {
+                                required: '사업자 유형을 선택해주세요.'
+                            },
+                            /*location1 : {
+                                required : '시, 도를 선택을 해주세요.'
+                            },
+
+                            location2 : {
+                                required : '구, 군을 선택해주세요.'
+                            }*/
+                        },
+                        submitHandler: function(form) {
+                            if (confirmInput()) {
+                                $('._comma').val(uncomma($('._comma').val()));
+                                form.submit();
+                            }
+                        }
+                    });
+
+                    //기업파일 업로드(10개까지..)
+                    $(document).on("change", 'input:file[name=cipCompanyFiles]', function(e) {
+                        if (fileMaxLength <= $('ol li[id^=cipFile_]').size()) {
+                            alert("파일은 최대 " + fileMaxLength + "개 까지 등록 가능합니다.");
+                            return false;
+                        }
+
+                        var filePath = $('#cipCompanyFile' + fileSeq + '').val();
+                        if (0 < $('#cipCompanyFile' + fileSeq + '').val().length) {
+                            var fileName = filePath.substr(filePath.lastIndexOf('\\') + 1, filePath.length);
+
+                            appendCipCompanyFileList(fileName, fileSeq);
+
+                            ++fileSeq;
+                            $("#hiddenCipFiles").append(' <input type="file" id="cipCompanyFile' + fileSeq + '" name="cipCompanyFiles" class="uploadHidden" tabindex="-1" />'); //2021-03-10 추가
+                            $('#findFileBtn').attr('for', 'cipCompanyFile' + fileSeq + '');
+                        }
+                        e.preventDefault();
+                    });
+
+                    $("#_submitFrm").on("click", function() {
+                        $("#companyFrm").submit();
+                    });
+
+                    //팝업 닫기
+                    $("._closePop").on("click", function() {
+                        /*$.unblockUI();
+                        $("#layer_popup").html('');*/
+                        window.close();
+                    });
+
+                    //소재지 가져오기
+                    function getLocation(prntName, childName) {
+                        $.ajax({
+                            url: '/mypage/getLocation.json',
+                            type: 'post',
+                            dataType: 'json',
+                            data: {
+                                'prntName': prntName
+                            },
+                            success: function(data) {
+                                var makeHtml = '<option value="">구,군 선택</option>';
+                                if (prntName != "세종특별자치시") {
+                                    for (var i = 0; i < data.locationList.length; i++) {
+                                        if (childName == data.locationList[i].locName) {
+                                            makeHtml += '<option value="' + data.locationList[i].locName + '" selected="selected">' + data.locationList[i].locName + '</option>';
+                                        } else {
+                                            makeHtml += '<option value="' + data.locationList[i].locName + '">' + data.locationList[i].locName + '</option>';
+                                        }
+                                    }
+                                    $("#location2").html(makeHtml);
+                                    $("#location2").attr("disabled", false).show();
+                                } else {
+                                    $("#location2").attr("disabled", true).hide();
+                                    $("#location2").html('');
+                                }
+                            },
+                            error: function() {
+                                var makeHtml = '<option value="">구,군 선택</option>';
+                                $("#location2").html(makeHtml);
+                                $("#location2").show();
+                            }
+                        });
+                    }
+
+                    //업로드 전 체크
+                    function confirmInput() {
+
+                        //달력체크
+                        if (!isValidDate($("#infoOpenStartDate").val())) {
+                            alert("정보공개기간 시작일 형식이 잘못되었습니다. 다시 입력해 주세요.");
+                            $("#infoOpenStartDate").focus();
+                            return false;
+                        }
+
+                        if (!isValidDate($("#infoOpenCloseDate").val())) {
+                            alert("정보공개기간 종료일 형식이 잘못되었습니다. 다시 입력해 주세요.");
+                            $("#infoOpenCloseDate").focus();
+                            return false;
+                        }
+
+                        if ($("#infoOpenCloseDate").val() < $("#infoOpenStartDate").val()) {
+                            alert("정보공개기간 시작일이 종료일보다 큽니다. 다시 선택해 주세요.");
+                            $("#infoOpenStartDate").focus();
+                            return false;
+                        }
+
+                        var bizImgAltText = $("#bizImgAltText");
+                        if (bizImgAltText.val() == "" || bizImgAltText.val() == "이미지에 대한 대체텍스트를 입력해주세요.") {
+                            alert("기업(홍보)이미지의 대체텍스트를 입력해주세요.");
+                            bizImgAltText.val('').focus();
+                            return false;
+                        }
+
+                        var promoImgAltText = $("#promoImgAltText");
+                        if (promoImgAltText.val() == "" || promoImgAltText.val() == "이미지에 대한 대체텍스트를 입력해주세요.") {
+                            alert("홍보영역이미지의 대체텍스트를 입력해주세요.");
+                            promoImgAltText.val('').focus();
+                            return false;
+                        }
+
+                        //소재지 체크
+                        if ($("#location1").val() == "") {
+                            alert("지역을 선택해주세요.");
+                            return false;
+                        }
+
+                        if (!$("#location2").prop("disabled")) {
+                            if ($("#location2").val() == "") {
+                                alert("구, 군을 선택해주세요.");
+                                return false;
+                            }
+                        }
+
+                        //달력체크
+                        if ($("#infoOpenCloseDate").val() < $("#infoOpenStartDate").val()) {
+                            alert("정보공개기간 시작일이 종료일보다 큽니다. 다시 선택해 주세요.");
+                            $("#infoOpenStartDate").focus();
+                            return false;
+                        }
+
+                        //기업(홍보)이미지 체크(수정시)
+                        if ($("#bizImgPath").length == 0 && $("#bizImg").val() == "") {
+                            alert("기업(홍보)이미지를 등록해주세요.");
+                            return false;
+                        }
+
+                        //홍보이미지 체크(수정시)
+                        if ($("#promoImgPath").length == 0 && $("#promoImg").val() == "") {
+                            alert("홍보 영역 이미지를 등록해주세요.");
+                            return false;
+                        }
+
+
+
+                        //기관이면서 기업정보 신규등록일때만 체크
+
+
+                        return true;
+                    }
+
+                    //하단 파일 리스트 추가
+                    function appendCipCompanyFileList(fileName, fileSeq) {
+                        var index = $("#cipCompanyFileList li").length + 1;
+                        var makeHtml = '<li id="cipFile_' + fileSeq + '"><span name="cipFileIndex">' + index + '</span>. ' + fileName + ' <span class="btnTable light"><a href="javascript://" class="_delCipCompanyFile" data-imgIdx="' + fileSeq + '">삭제</a></span></li>';
+                        $("#cipCompanyFileList").append(makeHtml);
+
+                        delCipCompanyFile();
+                    }
+
+                    //하단 파일 리스트 삭제
+                    delCipCompanyFile();
+
+                    function delCipCompanyFile() {
+                        $("._delCipCompanyFile").on("click", function() {
+							$(this).closest('ol').prev().find('input[type="file"]').attr("tabindex", "-1"); //2021-03-10 추가
+							$(this).closest('ol').prev().find('input[type="file"]').last().attr("tabindex", "0"); //2021-03-10 추가
+							//2021-03-08 추가
+							if ($(this).parents('li').next().length > 0){
+								$(this).parents('li').next().find('a').focus();
+							} else{
+								if ($(this).parents('li').prev().length > 0){
+									$(this).parents('li').prev().find('a').focus();
+								} else{
+									$(this).closest('ol').prev().find('input[type="file"]').attr("tabindex", "0").focus(); //2021-03-10 추가
+								}								
+							}
+	
+
+                            var fileSeq = $(this).attr("data-imgIdx");
+                            $("#cipFile_" + fileSeq).remove();
+                            $("#cipCompanyFile" + fileSeq).remove();
+                            //파일 번호 재정렬
+                            $('span[name=cipFileIndex]').each(function(index) {
+                                $(this).html(index + 1);
+                            });
+                        });
+                    }
+
+                    //첨부파일 등록 삭제(수정 시)
+                    $("._delImgFile").on("click", function() {
+                        var imgType = $(this).attr("data-imgtype");
+						$(this).closest('ol').prev().find('input[type="file"]').focus(); //2021-03-08 추가
+                        $("#ol_" + imgType).remove();
+                    });
+
+                    $("._cultureYn").on("change", function() {
+                        getBizType($(this).val());
+                    });
+                });
+
+                //사업분야 가져오기
+
+                function getBizType(bizTypeCd) {
+                    var bizTypeArr = ',24,';
+                    $.ajax({
+                        url: '/mypage/getBizType.json',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            'bizTypeCd': bizTypeCd
+                        },
+                        success: function(data) {
+                            var makeHtml = '';
+                            for (var i = 0; i < data.bizTypeList.length; i++) {
+                                makeHtml += '<span class="formElement small">';
+                                if (bizTypeArr.indexOf(',' + data.bizTypeList[i].bizTypeSeq + ',') > -1) {
+                                    makeHtml += '<input type="checkbox" id="bizTypeCd' + i + '" name="bizTypeCd" value="' + data.bizTypeList[i].bizTypeSeq + '" class="_bizTypeCd" checked=checked title="' + data.bizTypeList[i].bizTypeName + '"/>';
+                                } else {
+                                    makeHtml += '<input type="checkbox" id="bizTypeCd' + i + '" name="bizTypeCd" value="' + data.bizTypeList[i].bizTypeSeq + '" class="_bizTypeCd" title="' + data.bizTypeList[i].bizTypeName + '"/>';
+                                }
+                                makeHtml += '<label for="bizTypeCd' + i + '">' + data.bizTypeList[i].bizTypeName + '</label>';
+                                makeHtml += '</span>';
+                            }
+                            $("#td_bizTypeCd").html(makeHtml);
+
+                        },
+                        error: function() {
+                            console.log('error');
+                        }
+                    });
+                }
+
+                $(document).ready(function() {
+
+                    datePickerController.createDatePicker({
+                        formElements: {
+                            "infoOpenStartDate": "%Y-%m-%d"
+                        },
+                        //rangeLow:new Date(),
+                        callbackFunctions: {
+                            "datereturned": [checkDate],
+                        }
+                    });
+
+                    datePickerController2.createDatePicker({
+                        formElements: {
+                            "infoOpenCloseDate": "%Y-%m-%d"
+                        },
+                        //rangeLow:new Date(),
+                        callbackFunctions: {
+                            "datereturned": [checkDate],
+                        }
+                    });
+
+                    //사회적기업일 경우 예외처리
+                    if ("" == 'Y') {
+                        $('html head title').text('사회적기업 등록하기 | 기업투자정보마당');
+                        $('.popTitle strong').text('사회적기업 등록하기');
+                        $('#cultureYn4').attr("checked", true);
+                        $('input:radio[name="cultureYn"]:not(:checked)').attr('disabled', true);
+                    }
+
+
+
+
+                    getBizType('N');
+
+
+
+                });
+
+                //사업분야 이벤트 바인딩
+                $(document).on('click', '._bizTypeCd', function() {
+                    var bizTypeChkLen = 3;
+                    var message = '사업분야는 ' + bizTypeChkLen + '개까지 선택가능합니다.'
+
+                    /*$('input:checkbox[name=bizTypeCd]').on('click', function(){*/
+                    if (bizTypeChkLen < $('input:checkbox[name=bizTypeCd]:checked').length) {
+                        alert(message);
+                        return false;
+                    }
+                    /*});*/
+                });
+
+                function checkDate(obj) {
+                    var startDate = $("#infoOpenStartDate").val();
+                    var endDate = $("#infoOpenCloseDate").val();
+
+                    if (startDate != "" && endDate != "" && endDate < startDate) {
+                        $("#" + obj.id).val('');
+                        alert("시작일은 종료일 보다 클 수 없습니다. 다시 선택해 주세요.");
+                    }
+                }
+
+                //첨부파일 이미지 확장자 체크
+                function checkImgFileExtension(inputImg) {
+                    if (!!inputImg) {
+                        var fileExt = inputImg.substring(inputImg.lastIndexOf('.') + 1);
+                        if (fileExt.toUpperCase() == "JPG" || fileExt.toUpperCase() == "JPEG" || fileExt.toUpperCase() == "BMP" || fileExt.toUpperCase() == "PNG" || fileExt.toUpperCase() == "GIF")
+                            return true;
+                    }
+                }
+
+                $('input:checkbox[name=tourRecommYn]').on('click', function() {
+                    if (test = "false") {
+                        if ($('input:checkbox[name=tourRecommYn]').is(':checked')) {
+                            $("#bizScore").removeAttr("disabled");
+                        } else {
+                            $("#bizScore").attr("disabled", "disabled");
+                        }
+                    }
+                });
+
+                $(document).ready(function() {
+                    switch ($(':radio[name="cultureYn"]:checked').val()) {
+                        case 'T': {
+                            $('._crowdTypeCd').show();
+                            $('._bizScore').show();
+                            break;
+                        }
+                        case 'S': {
+                            $('._crowdTypeCd').show();
+                            $('._bizScore').hide();
+                            break;
+                        }
+                        default: {
+                            $('._crowdTypeCd').hide();
+                            $('._bizScore').hide();
+                            break;
+                        }
+                    }
+
+                    if (test = "false") {
+                        if ($('input:checkbox[name=tourRecommYn]').is(':checked')) {
+                            $("#bizScore").removeAttr("disabled");
+                        } else {
+                            $("#bizScore").attr("disabled", "disabled");
+                        }
+                    }
+
+                    if (test = "") {
+                        $('._crowdTypeCd').show();
+
+                        switch ('false') {
+                            case 'true': {
+                                $('._bizScore').show();
+                                break;
+                            }
+                            case 'false': {
+                                $('._bizScore').hide();
+                                break;
+                            }
+                        }
+                    }
+
+                    if (test = "") {
+                        $('._crowdTypeCd').show();
+                    }
+
+                });
+
+                $(document).ready(function() {
+                    $("._score").on("keyup", function() {
+                        $(this).val($(this).val().replace(/[^\.0-9]/g, ''));
+
+                        if ($("#bizScore").val() > 5) {
+                            $("#bizScore").val("5");
+                        }
+                    });
+                });
+            </script>
+
+        </div><!-- // #container -->
+    </div>
+
+    <script type="text/javascript">
+        $("._closePop").on("click", function() {
+            window.close();
+        });
+    </script>
+
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-72517900-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
